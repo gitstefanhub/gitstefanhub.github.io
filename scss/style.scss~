@@ -1,0 +1,380 @@
+ 
+/*
+  Credit to:
+  http://www.thelittletechie.com/2015/05/beautiful-butterfly.html
+
+	*****************************
+	this is not original code i made some change for self purpose
+	*****************************
+*/
+
+$color-wing: dodgerblue;
+$color-sub-wing: lighten(dodgerblue, 10%);
+$color-body: #d6c18b;
+
+html {
+    box-sizing: border-box;  
+}
+ 
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+	overflow-x: hidden;
+}
+ 
+.butterfly {
+    -webkit-animation: hover 250ms cubic-bezier(.48,.01,.54,1) infinite;
+    -webkit-animation-direction: alternate;
+  
+    animation: hover 250ms cubic-bezier(.48,.01,.54,1) infinite;
+    animation-direction: alternate;
+
+    position: absolute;
+    margin: 0 45%;
+    top: 40%;
+
+    transform-style: preserve-3d;
+    transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateY(0px);
+    width: 30px;
+    
+    &::before {
+        background: darken($color-body,55%);
+        border-radius: 50%;
+        content: '';
+        display: block;
+        height: 110px;
+        left: 50%;
+        margin-left:-7px;
+        outline: 1px solid transparent;
+        position: absolute;
+        top: -15px;
+        transform: rotateY(100deg);
+        width: 20px;
+        z-index: 2;
+    }
+}
+ 
+ 
+.wing {
+    background: $color-wing;
+    display: block;
+    opacity: 0.7;
+    outline: 1px solid transparent;
+    position: absolute;
+    top: 0;
+    
+    &:first-child {
+      
+        -webkit-animation: leftflap 250ms cubic-bezier(.48,.01,.54,1) infinite;
+        -webkit-animation-direction: alternate;
+        -webkit-animation-fill-mode: reverse;
+      
+        animation: leftflap 250ms cubic-bezier(.48,.01,.54,1) infinite;
+        animation-direction: alternate;
+        animation-fill-mode: reverse;
+        height: 1px;
+        left: 0;
+        transform: rotateY(-20deg);
+        transform-origin: 100% 50%;
+        width: 1px;
+        z-index: 3;
+    }
+    
+    &:last-child {
+        -webkit-animation: rightflap 250ms cubic-bezier(.48,.01,.54,1) infinite;
+        -webkit-animation-direction: alternate;
+        -webkit-animation-fill-mode: reverse;
+        animation: rightflap 250ms cubic-bezier(.48,.01,.54,1) infinite;
+        animation-direction: alternate;
+        animation-fill-mode: reverse;
+        right:0;
+        transform: rotateY(200deg);
+        z-index: 1;
+    }
+    
+    .bit {
+        background: $color-wing;
+    }
+    .bit::after {
+        background: $color-sub-wing;
+    }
+    
+    .bit, .bit::after {
+        border-radius: 50%;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: 100% 50%;
+    }
+    
+    .bit:first-child {
+        height: 70px;
+        text-align: center;
+        top: 15px;
+        transform: rotateZ(40deg);
+        width: 130px;
+        
+        &::after {
+            content: '';
+            display: inline-block;
+            height: 60px;
+            left: -30px;
+            top: 5px;
+            width: 100px;
+        }
+    }
+    
+    .bit:last-child {
+        height: 55px;
+        transform: rotateZ(-40deg);
+        width: 100px;
+        
+        &::after {
+            content: '';
+            display: inline-block;
+            height: 45px;
+            left: -24px;
+            top: 5px;
+            width: 60px;
+            z-index:1;
+        }
+    }
+}
+
+.langs {
+
+	width: 50%;
+	display: block;
+	margin: 0 auto;
+
+	
+
+	.wrap {
+
+		i {
+
+			font-size: 200%;
+
+		}		
+		
+
+	}
+	
+	.horiz {
+		div {
+			display: inline-block;
+			float: left;
+		}
+	}
+
+
+}
+
+@keyframes hover {
+    0% {
+        -webkit-transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(0px);
+        transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(0px);
+    }
+ 
+    100% {
+        -webkit-transform:rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(-3px);
+        transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(-3px);
+    }
+}
+ 
+@keyframes leftflap {
+    0% {
+        -webkit-transform: rotateY(-20deg);
+        transform: rotateY(-20deg);
+    }
+ 
+    100% {
+        -webkit-transform: rotateY(90deg);
+        transform: rotateY(90deg);
+    }
+}
+ 
+@keyframes rightflap {
+    0% {
+        -webkit-transform: rotateY(200deg);
+        transform: rotateY(200deg);
+    }
+ 
+    100% {
+        -webkit-transform: rotateY(90deg);
+        transform: rotateY(90deg);
+    }
+}
+
+
+
+
+/*
+	circle 
+	credit to:
+	https://css-tricks.com/snippets/sass/placing-items-circle/
+
+	***********************************************
+	made some changes
+	***********************************************
+*/
+
+@mixin fadeInAnim($width) {
+
+	
+	-webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
+
+	@keyframes fadein {
+	    from { width: 0; }
+	    to   { width: $width; }
+	}
+
+	/* Firefox < 16 */
+	@-moz-keyframes fadein {
+	    from { width: 0; }
+	    to   { width: $width; }
+	}
+
+	/* Safari, Chrome and Opera > 12.1 */
+	@-webkit-keyframes fadein {
+	    from { width: 0; }
+	    to   { width: $width; }
+	}
+
+	/* Internet Explorer */
+	@-ms-keyframes fadein {
+	    from { width: 0; }
+	    to   { width: $width; }
+	}
+
+	/* Opera < 12.1 */
+	@-o-keyframes fadein {
+	    from { width: 0; }
+	    to   { width: $width; }
+	}
+}
+
+
+@mixin makeMeSomeCircle($item-count, $circle-size, $item-size){
+
+	position: relative;
+
+	@include fadeInAnim($circle-size);
+
+
+	height: $circle-size;
+	padding: 0;
+	border-radius: 50%;
+	list-style: none;
+
+	> * {
+
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: $item-size;
+		height: $item-size;
+		margin: -($item-size / 2);
+	
+		$angle: ( 360 / $item-count );
+		$rot: 0;
+	
+		@for $i from 1 through $item-count {
+
+			&:nth-of-type(#{$i}) {
+
+				transform:
+					rotate($rot * 1deg)
+					translate($circle-size)
+					rotate($rot * -1deg);
+			}
+
+			$rot: $rot + $angle;
+
+
+		}
+
+
+		}
+
+	
+
+
+}
+
+/*
+
+*/
+
+.jumbo {
+	
+	@include makeMeSomeCircle(
+			$item-count: 13,
+			$circle-size: 70%,
+			$item-size: 30%);
+
+	transition: width 1.3s left 1s;
+	position: absolute;
+		top: 35%;
+		left: -15%;
+		width: 173%;
+
+	i {
+
+		display: block;
+		max-width: 100%;
+		font-size: 170%;
+		
+
+	}
+
+}
+@media only screen and (max-width: 468px) {
+
+	.jumbo {
+
+		top: 26%;
+
+	}
+
+}
+
+@media only screen and (min-width: 541px) {
+.jumbo {
+		width: 938px;
+		  right: 0; 
+		  margin-left: auto; 
+		  margin-right: auto; 
+	}
+	
+
+}
+@media only screen and (min-width: 541px) and (max-width: 670px) {
+
+	.jumbo {
+		left: -8%; 
+	}
+}
+@media only screen and (min-width: 670px) and (max-width: 850px) {
+
+	.jumbo {
+		left: 3%; 
+	}
+
+}
+@media only screen and (min-width: 850px) {
+	.jumbo {
+		left: 15%; 
+	}
+}
+
+
+

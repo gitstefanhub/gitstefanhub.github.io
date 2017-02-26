@@ -1,0 +1,261 @@
+/*
+  Credit to:
+  http://www.thelittletechie.com/2015/05/beautiful-butterfly.html
+
+	*****************************
+	this is not original code i made some change for self purpose
+	*****************************
+*/
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  overflow-x: hidden; }
+
+.butterfly {
+  -webkit-animation: hover 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+  -webkit-animation-direction: alternate;
+  animation: hover 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+  animation-direction: alternate;
+  position: absolute;
+  margin: 0 45%;
+  top: 40%;
+  transform-style: preserve-3d;
+  transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateY(0px);
+  width: 30px; }
+  .butterfly::before {
+    background: #362c13;
+    border-radius: 50%;
+    content: '';
+    display: block;
+    height: 110px;
+    left: 50%;
+    margin-left: -7px;
+    outline: 1px solid transparent;
+    position: absolute;
+    top: -15px;
+    transform: rotateY(100deg);
+    width: 20px;
+    z-index: 2; }
+
+.wing {
+  background: dodgerblue;
+  display: block;
+  opacity: 0.7;
+  outline: 1px solid transparent;
+  position: absolute;
+  top: 0; }
+  .wing:first-child {
+    -webkit-animation: leftflap 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-fill-mode: reverse;
+    animation: leftflap 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+    animation-direction: alternate;
+    animation-fill-mode: reverse;
+    height: 1px;
+    left: 0;
+    transform: rotateY(-20deg);
+    transform-origin: 100% 50%;
+    width: 1px;
+    z-index: 3; }
+  .wing:last-child {
+    -webkit-animation: rightflap 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-fill-mode: reverse;
+    animation: rightflap 250ms cubic-bezier(0.48, 0.01, 0.54, 1) infinite;
+    animation-direction: alternate;
+    animation-fill-mode: reverse;
+    right: 0;
+    transform: rotateY(200deg);
+    z-index: 1; }
+  .wing .bit {
+    background: dodgerblue; }
+  .wing .bit::after {
+    background: #51a9ff; }
+  .wing .bit, .wing .bit::after {
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: 100% 50%; }
+  .wing .bit:first-child {
+    height: 70px;
+    text-align: center;
+    top: 15px;
+    transform: rotateZ(40deg);
+    width: 130px; }
+    .wing .bit:first-child::after {
+      content: '';
+      display: inline-block;
+      height: 60px;
+      left: -30px;
+      top: 5px;
+      width: 100px; }
+  .wing .bit:last-child {
+    height: 55px;
+    transform: rotateZ(-40deg);
+    width: 100px; }
+    .wing .bit:last-child::after {
+      content: '';
+      display: inline-block;
+      height: 45px;
+      left: -24px;
+      top: 5px;
+      width: 60px;
+      z-index: 1; }
+
+.langs {
+  width: 50%;
+  display: block;
+  margin: 0 auto; }
+  .langs .wrap i {
+    font-size: 200%; }
+  .langs .horiz div {
+    display: inline-block;
+    float: left; }
+
+@keyframes hover {
+  0% {
+    -webkit-transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(0px);
+    transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(0px); }
+  100% {
+    -webkit-transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(-3px);
+    transform: rotateX(50deg) rotateY(20deg) rotateZ(-50deg) translateZ(-3px); } }
+@keyframes leftflap {
+  0% {
+    -webkit-transform: rotateY(-20deg);
+    transform: rotateY(-20deg); }
+  100% {
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg); } }
+@keyframes rightflap {
+  0% {
+    -webkit-transform: rotateY(200deg);
+    transform: rotateY(200deg); }
+  100% {
+    -webkit-transform: rotateY(90deg);
+    transform: rotateY(90deg); } }
+/*
+	circle 
+	credit to:
+	https://css-tricks.com/snippets/sass/placing-items-circle/
+
+	***********************************************
+	made some changes
+	***********************************************
+*/
+/*
+
+*/
+.jumbo {
+  position: relative;
+  -webkit-animation: fadein 1s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 1s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 1s;
+  /* Internet Explorer */
+  -o-animation: fadein 1s;
+  /* Opera < 12.1 */
+  animation: fadein 1s;
+  /* Firefox < 16 */
+  /* Safari, Chrome and Opera > 12.1 */
+  /* Internet Explorer */
+  /* Opera < 12.1 */
+  height: 70%;
+  padding: 0;
+  border-radius: 50%;
+  list-style: none;
+  transition: width 1.3s;
+  position: absolute;
+  top: 35%;
+  left: -15%;
+  width: 173%; }
+@keyframes fadein {
+  from {
+    width: 0; }
+  to {
+    width: 70%; } }
+@-moz-keyframes fadein {
+  from {
+    width: 0; }
+  to {
+    width: 70%; } }
+@-webkit-keyframes fadein {
+  from {
+    width: 0; }
+  to {
+    width: 70%; } }
+@-ms-keyframes fadein {
+  from {
+    width: 0; }
+  to {
+    width: 70%; } }
+@-o-keyframes fadein {
+  from {
+    width: 0; }
+  to {
+    width: 70%; } }
+  .jumbo > * {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 30%;
+    margin: -15%; }
+    .jumbo > *:nth-of-type(1) {
+      transform: rotate(0deg) translate(70%) rotate(0deg); }
+    .jumbo > *:nth-of-type(2) {
+      transform: rotate(27.69231deg) translate(70%) rotate(-27.69231deg); }
+    .jumbo > *:nth-of-type(3) {
+      transform: rotate(55.38462deg) translate(70%) rotate(-55.38462deg); }
+    .jumbo > *:nth-of-type(4) {
+      transform: rotate(83.07692deg) translate(70%) rotate(-83.07692deg); }
+    .jumbo > *:nth-of-type(5) {
+      transform: rotate(110.76923deg) translate(70%) rotate(-110.76923deg); }
+    .jumbo > *:nth-of-type(6) {
+      transform: rotate(138.46154deg) translate(70%) rotate(-138.46154deg); }
+    .jumbo > *:nth-of-type(7) {
+      transform: rotate(166.15385deg) translate(70%) rotate(-166.15385deg); }
+    .jumbo > *:nth-of-type(8) {
+      transform: rotate(193.84615deg) translate(70%) rotate(-193.84615deg); }
+    .jumbo > *:nth-of-type(9) {
+      transform: rotate(221.53846deg) translate(70%) rotate(-221.53846deg); }
+    .jumbo > *:nth-of-type(10) {
+      transform: rotate(249.23077deg) translate(70%) rotate(-249.23077deg); }
+    .jumbo > *:nth-of-type(11) {
+      transform: rotate(276.92308deg) translate(70%) rotate(-276.92308deg); }
+    .jumbo > *:nth-of-type(12) {
+      transform: rotate(304.61538deg) translate(70%) rotate(-304.61538deg); }
+    .jumbo > *:nth-of-type(13) {
+      transform: rotate(332.30769deg) translate(70%) rotate(-332.30769deg); }
+  .jumbo i {
+    display: block;
+    max-width: 100%;
+    font-size: 170%; }
+
+@media only screen and (max-width: 468px) {
+  .jumbo {
+    top: 26%; } }
+@media only screen and (min-width: 541px) {
+  .jumbo {
+    width: 938px;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto; } }
+@media only screen and (min-width: 541px) and (max-width: 670px) {
+  .jumbo {
+    left: -8%; } }
+@media only screen and (min-width: 670px) and (max-width: 850px) {
+  .jumbo {
+    left: 3%; } }
+@media only screen and (min-width: 850px) {
+  .jumbo {
+    left: 15%; } }
+
+/*# sourceMappingURL=style.css.map */

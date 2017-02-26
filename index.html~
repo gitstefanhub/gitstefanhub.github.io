@@ -17,7 +17,9 @@
 
 <body>
 
-
+<div style="position: absolute; left: 5%; top:55%">
+    <div style="position: relative; left: -5%; border: dotted red 1px;">
+      
 <div class="jumbo">
 
 		<i class="devicon-bootstrap-plain-wordmark colored"></i>
@@ -35,6 +37,8 @@
 		<i class="devicon-sass-original colored"></i>
 
 
+</div>
+</div>
 </div>
 
 

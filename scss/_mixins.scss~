@@ -1,0 +1,138 @@
+
+
+
+$color-wing: dodgerblue;
+$color-sub-wing: lighten($color-wing, 10%);
+$color-body: #d6c18b;
+
+@mixin baseButterfly( $z ){
+	
+	-webkit-transform: rotateX(50deg)
+		rotateY(20deg) rotateZ(-50deg)
+		translateY($z);
+
+	transform: rotateX(50deg)
+		rotateY(20deg) rotateZ(-50deg)
+		translateY($z);
+}
+
+@keyframes keyframeButterfly(){
+
+
+	0% {
+		
+	-webkit-transform: rotateX(50deg)
+		rotateY(20deg) rotateZ(-50deg)
+		translateY(0px);
+
+	transform: rotateX(50deg)
+		rotateY(20deg) rotateZ(-50deg)
+		translateY(0px);
+	}
+	
+	100% {
+
+	-webkit-transform: rotateX(50deg)
+		rotateY(20deg) rotateZ(-50deg)
+		translateY(-3px);
+
+	transform: rotateX(50deg)
+		rotateY(20deg) rotateZ(-50deg)
+		translateY(-3px);
+	}
+
+}
+
+@mixin animButterfly(){
+
+	-webkit-animation: keyframeButterfly 250ms cubic-bezier(.48,.01,.54,1) infinite;
+	-webkit-animation-direction: alternate;
+
+	animation: keyframeButterfly 250ms cubic-bezier(.48,.01,.54,1) infinite;
+	animation-direction: alternate;
+	
+}
+
+
+@mixin shadowBase($x,$y){
+
+        -webkit-transform: translateX(-40px) translateY(100px) scale($x,$y);
+        	transform: translateX(-40px) translateY(100px) scale($x,$y);
+    
+
+}
+
+
+@keyframes keyframesShadow(){
+
+	0% {
+        -webkit-transform: translateX(-40px) translateY(100px) scale(1,1);
+        	transform: translateX(-40px) translateY(100px) scale(1,1);
+	}
+
+	100% {
+        -webkit-transform: translateX(-40px) translateY(100px) scale(1.1,1.1);
+        	transform: translateX(-40px) translateY(100px) scale(1.1,1.1);
+	}
+
+}
+
+@mixin animShadow(){
+		-webkit-animation: keyframesShadow 250ms cubic-bezier(.48,.01,.54,1) infinite;
+		-webkit-animation-direction: alternate;	
+
+		animation: keyframesShadow 250ms cubic-bezier(.48,.01,.54,1) infinite;
+		animation-direction: alternate;	
+}
+
+
+
+@mixin wingBase($r){
+		
+		-webkit-transform: rotateY($r);
+		transform: rotateY($r);
+}
+
+
+@keyframes leftWing(){
+		
+	0% {
+		@include wingBase(-20deg);
+	}
+
+	100% {
+		@include wingBase(90deg);
+	}
+		
+}
+
+@mixin animLeftWing(){
+
+	
+		-webkit-animation: leftWing 250ms cubic-bezier(.48,.01,.54,1) infinite;
+		-webkit-animation-direction: alternate;	
+
+		animation: leftWing 250ms cubic-bezier(.48,.01,.54,1) infinite;
+		animation-direction: alternate;	
+
+}
+
+@keyframes rightWing(){
+		
+	0% {
+		@include wingBase(200deg);
+	}
+	100% {
+		@include wingBase(90deg);
+	}	
+}
+@mixin animRightWing(){
+
+	
+		-webkit-animation: rightWing 250ms cubic-bezier(.48,.01,.54,1) infinite;
+		-webkit-animation-direction: alternate;	
+
+		animation: rightWing 250ms cubic-bezier(.48,.01,.54,1) infinite;
+		animation-direction: alternate;	
+
+}
